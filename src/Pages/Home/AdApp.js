@@ -2,14 +2,14 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import Row from "../../Components/Atoms/Row";
 import Column from "../../Components/Atoms/Column";
-import Tick from "../../Assets/Icons/tick.webp";
+import Tick from "../../Assets/Icons/tick.png";
 import Text from "../../Components/Atoms/Text";
 import Image from "../../Components/Atoms/Image";
 import { CustomList } from "../../Components/Molecules/List";
 import { IconLinkButton } from "../../Components/Atoms/Button";
-import LogoAppStore from "../../Assets/logo_app_store.webp";
-import LogoPlayStore from "../../Assets/logo_play_store.webp";
-import AppLogo from "../../Assets/app_logo.webp";
+import LogoAppStore from "../../Assets/logo_app_store.png";
+import LogoPlayStore from "../../Assets/logo_play_store.png";
+import AppLogo from "../../Assets/app_logo.png";
 import Background from "../../Components/Atoms/Background";
 import styled, { useTheme } from "styled-components";
 
