@@ -85,7 +85,8 @@ const FreeObjects = () => {
           setProUser(true);
         })
         .catch((error) => {
-          console.log("sendStripeToken failed:", error);
+          // omit the logging
+         // console.log("sendStripeToken failed:", error);
         });
     }
   }, [query.get("id"), isSignedIn]);

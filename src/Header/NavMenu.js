@@ -8,7 +8,7 @@ import Settings from "../Components/Organisms/Auth/Settings/Settings";
 import NavModal from "../Components/Organisms/Navigation/NavModal/NavModal";
 import Auth from "../Components/Organisms/Auth/Auth";
 import Placeholder from "../Components/Atoms/Placeholder";
-import accountIcon from "../Assets/Icons/account3.png";
+import accountIcon from "../Assets/Icons/account3.webp";
 import { useAuth } from "../firebaseProvider";
 
 const checkHomeActive = () => {
