@@ -12,20 +12,20 @@ import Footer from "./Footer/Footer";
 
 const theme = {
   colors: {
-    primary: "#4287a1",
+    primary: "#33697d",
     secundary: "#eff0f4",
     third: "#c6dbe3",
     navFontColor: "#d9dadb",
     navDropdownFontColor: "#ffffff",
     navChevronColor: "#ffffff",
     navDropdownBGColor: "#eff0f4",
-    burgerFontColor: "#4287a1",
+    burgerFontColor: "#33697d",
     burgerDropdownFontColor: "#ffffff",
     burgerChevronColor: "#ffffff",
     burgerBGColor: "#000000",
     burgerDropdownBGColor: "#ededed",
     lngFontColor: "#ffffff",
-    lngLineFontColor: "#4287a1",
+    lngLineFontColor: "#33697d",
     lngDropdownColor: "#ffffff",
     lngChevronColor: "#ffffff",
     lngDropdownBGColor: "#f9f9f9",
