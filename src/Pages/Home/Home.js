@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import styled, { useTheme } from "styled-components";
 import { device } from "../../Components/Atoms/Devices";
 import Section from "../../Components/Atoms/Section";
 import Text from "../../Components/Atoms/Text";
 import { getCollection } from "../../firebaseProvider";
-import BackgroundImage from "../../Assets/header2.jpg";
+import BackgroundImage from "../../Assets/header2.webp";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
-import AdApp from "./AdApp";
-import FreeObjects from "./FreeObjects";
 
 const Title = styled.h1`
   font-size: 55px;
@@ -33,16 +31,21 @@ const Title = styled.h1`
   }
 `;
 
+const LazyAdApp = React.lazy(() => import("./AdApp"));
+const LazyFreeObjects = React.lazy(() => import("./FreeObjects"));
+
 const Home = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [freeObjects, setFreeObjects] = useState();
 
-  if (freeObjects == null) {
-    getCollection("freeObjects").then((data) => {
-      setFreeObjects(data);
-    });
-  }
+  useEffect(() => {
+    if (freeObjects == null) {
+      getCollection("freeObjects").then((data) => {
+        setFreeObjects(data);
+      });
+    }
+  }, [freeObjects]);
 
   return (
     <>
@@ -74,10 +77,14 @@ const Home = () => {
         ptMobile="60px"
         width="80%"
       >
-        <AdApp />
+        <Suspense fallback={<div>Loading AdApp...</div>}>
+          <LazyAdApp />
+        </Suspense>
       </Section>
       <Section pb="100px" pt="100px" backgroundColor={theme.colors.secundary}>
-        <FreeObjects />
+        <Suspense fallback={<div>Loading FreeObjects...</div>}>
+          <LazyFreeObjects />
+        </Suspense>
       </Section>
     </>
   );

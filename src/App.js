@@ -1,14 +1,18 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import  { lazy,Suspense } from "react";
+
+import { ThemeProvider } from "styled-components";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Header from "./Header/Header";
-import Home from "./Pages/Home/Home";
-import Infos from "./Pages/Infos/Infos";
-import Contact from "./Pages/Contact";
-import PricacyPolicy from "./Pages/PrivacyPolicy";
-import TermsOfService from "./Pages/TermsOfService";
 
 import "./App.css";
-import Footer from "./Footer/Footer";
+
+
+const Header = lazy(() => import("./Header/Header"));
+const Footer = lazy(()=>import("./Footer/Footer"))
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Infos = lazy(() => import("./Pages/Infos/Infos"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./Pages/TermsOfService"));
 
 const theme = {
   colors: {
@@ -43,27 +47,25 @@ const theme = {
   },
 };
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: ${(props) => props.theme.typography.fontFamiliy};
-  }
-`;
+
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+
       <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
         <Header />
         <Switch>
           <Route path="/contact" component={Contact} />
           <Route path="/infos" component={Infos} />
-          <Route path="/privacypolicy" component={PricacyPolicy} />
+          <Route path="/privacypolicy" component={PrivacyPolicy} />
           <Route path="/termsofservice" component={TermsOfService} />
           <Route path="/" component={Home} />
           <Redirect to="/" />
         </Switch>
         <Footer />
+        </Suspense>
       </BrowserRouter>
     </ThemeProvider>
   );
