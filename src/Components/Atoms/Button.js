@@ -50,10 +50,10 @@ export const ButtonWithRoundIcon = styled.button`
   padding: 0px;
 `;
 
-export const IconLinkButton = ({ link, icon }) => {
+export const IconLinkButton = ({ link, icon,alt }) => {
   return (
     <Link href={link}>
-      <Icon src={icon} />
+      <Icon alt={alt} src={icon} />
     </Link>
   );
 };

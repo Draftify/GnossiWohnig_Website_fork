@@ -61,10 +61,12 @@ const AdApp = () => {
             <IconLinkButton
               aria-label="App Store"
               link=""
+              alt="app store"
               icon={LogoAppStore}
             />
             <IconLinkButton
               aria-label="Play Store"
+              alt="play store"
               link="https://play.google.com/store/apps/details?id=com.nelinik.gnossi_wohnig"
               icon={LogoPlayStore}
             />
